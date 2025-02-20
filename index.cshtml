@@ -1,0 +1,30 @@
+﻿<!-- Index.cshtml -->
+@page
+@model VentasAPI.Pages.IndexModel
+@{
+    ViewData["Title"] = "Lista de Ventas";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Folio</th>
+            <th>Fecha</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var venta in Model.Ventas)
+        {
+        <tr>
+            <td>@venta.Folio</td>
+            <td>@venta.Fecha.ToShortDateString()</td>
+            <td>@venta.Cantidad</td>
+            <td>@venta.Total.ToString("C")</td>
+        </tr>
+        }
+    </tbody>
+</table>
